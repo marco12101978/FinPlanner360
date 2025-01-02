@@ -1,7 +1,10 @@
 using FinPlanner360.Api.Configuration;
 using FinPlanner360.Data.Configurations;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
 
 builder
     .AddApiConfig()
