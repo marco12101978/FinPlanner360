@@ -25,6 +25,7 @@ if (app.Environment.IsDevelopment())
 else
 {
     app.UseCors("Production");
+
 }
 
 app.UseHttpsRedirection();
