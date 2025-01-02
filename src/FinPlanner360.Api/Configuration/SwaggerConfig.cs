@@ -9,6 +9,21 @@ namespace FinPlanner360.Api.Configuration
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Version = "v1",
+                    Title = "FinPlanner360 Api",
+                    Description = "FinPlanner360"
+                });
+
+                //c.SwaggerDoc("v2", new OpenApiInfo
+                //{
+                //    Version = "v2",
+                //    Title = "FinPlanner360 Api",
+                //    Description = "FinPlanner360"
+                //});
+
+
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Description = "Insira o token JWT desta maneira: Bearer {seu token}",
