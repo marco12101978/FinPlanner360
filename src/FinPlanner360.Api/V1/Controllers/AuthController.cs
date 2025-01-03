@@ -8,11 +8,11 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 
-namespace FinPlanner360.Api.Controllers.V1
+namespace FinPlanner360.Api.V1.Controllers
 {
     [ApiController]
-    [Route("api/v1/conta")]
-    //[Route("api/v{version:apiVersion}/conta")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/conta")]
     public class AuthController : ControllerBase
     {
         private readonly SignInManager<IdentityUser> _signInManager;
