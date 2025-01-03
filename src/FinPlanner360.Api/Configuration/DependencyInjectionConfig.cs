@@ -4,6 +4,8 @@ using FinPlanner360.Business.Notificacoes;
 using FinPlanner360.Business.Services;
 using FinPlanner360.Data.Context;
 using FinPlanner360.Data.Repository;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace FinPlanner360.Api.Configuration
 {
@@ -17,6 +19,8 @@ namespace FinPlanner360.Api.Configuration
 
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+
             services.AddScoped<IAppIdentityUser, AppIdentityUser>();
             services.AddScoped<INotificador, Notificador>();
 

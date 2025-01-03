@@ -1,6 +1,7 @@
 using FinPlanner360.Api.Configuration;
 using FinPlanner360.Data.Configurations;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,14 +19,11 @@ builder
 
 var app = builder.Build();
 
-
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "API v1");
-    });
+    var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
+
+    app.UseSwaggerConfig(apiVersionDescriptionProvider);
 
     app.UseCors("Development");
 }
